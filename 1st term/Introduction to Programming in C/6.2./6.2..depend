@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1511888721 source:/home/maciej/Pulpit/wdpc/6.2./main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"sprawnoscsortowania.h"
+
+1511888670 source:/home/maciej/Pulpit/wdpc/6.2./sprawnoscsortowania.c
+	<stdlib.h>
+	<time.h>
+	<stdio.h>
+	"sprawnoscsortowania.h"
+
+1511886586 /home/maciej/Pulpit/wdpc/6.2./sprawnoscsortowania.h
+
+1511888721 source:/home/maciej/Studies/1st term/Introduction to Programming in C/6.2./main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"sprawnoscsortowania.h"
+
+1511886586 /home/maciej/Studies/1st term/Introduction to Programming in C/6.2./sprawnoscsortowania.h
+
+1511888670 source:/home/maciej/Studies/1st term/Introduction to Programming in C/6.2./sprawnoscsortowania.c
+	<stdlib.h>
+	<time.h>
+	<stdio.h>
+	"sprawnoscsortowania.h"
+

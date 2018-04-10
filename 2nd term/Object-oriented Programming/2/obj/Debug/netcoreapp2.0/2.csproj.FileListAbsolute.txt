@@ -1,0 +1,10 @@
+/home/maciej/Pulpit/po/2/bin/Debug/netcoreapp2.0/2.deps.json
+/home/maciej/Pulpit/po/2/bin/Debug/netcoreapp2.0/2.runtimeconfig.json
+/home/maciej/Pulpit/po/2/bin/Debug/netcoreapp2.0/2.runtimeconfig.dev.json
+/home/maciej/Pulpit/po/2/bin/Debug/netcoreapp2.0/2.dll
+/home/maciej/Pulpit/po/2/bin/Debug/netcoreapp2.0/2.pdb
+/home/maciej/Pulpit/po/2/obj/Debug/netcoreapp2.0/2.csproj.CoreCompileInputs.cache
+/home/maciej/Pulpit/po/2/obj/Debug/netcoreapp2.0/2.AssemblyInfoInputs.cache
+/home/maciej/Pulpit/po/2/obj/Debug/netcoreapp2.0/2.AssemblyInfo.cs
+/home/maciej/Pulpit/po/2/obj/Debug/netcoreapp2.0/2.dll
+/home/maciej/Pulpit/po/2/obj/Debug/netcoreapp2.0/2.pdb
