@@ -1,0 +1,66 @@
+\documentclass[12 pt, a4paper, fromalign=left]{letter}
+
+%https://stackoverflow.com/questions/1809882/latex-letter-from-address-left-aligned
+\makeatletter
+\renewcommand*{\opening}[1]{\ifx\@empty\fromaddress%
+  \thispagestyle{firstpage}%
+    {\raggedleft\@date\par}%
+  \else% home address
+   \thispagestyle{empty}%
+   {%
+    \begin{minipage}[c]{0.50\linewidth}
+    \toname \\
+    \toaddress
+    \end{minipage}
+    \begin{minipage}[c]{0.45\linewidth}
+    \raggedleft\begin{tabular}{l@{}}\ignorespaces
+    \fromaddress\\[0.0em]% replace 0.0em with space desired before date
+    \@date
+    \end{tabular}
+    \end{minipage}
+    \par
+}%
+  \fi
+  \vspace{2\parskip}%
+  #1\par\nobreak}
+\makeatother
+
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=2cm, right=2cm, top=2 cm, bottom=2cm, hedsep=2cm]{}
+\address{Dziekan Wydziału\\ Matematyki i Informatyki\\
+Uniwersytetu Wrocławskiego}
+\signature{Maciej M.}
+\date{} %inaczej pokaze sie data z szablonu
+\begin{document}
+\begin{letter}{Maciej M.\\
+ul. Piękna 42\\
+50-110 Wrocław\\
+student I stopnia\\
+kierunku Informatyka\\
+nr albumu: 300669}
+\begin{flushright}
+Wrocław,
+\today
+\end{flushright}
+\opening{Szanowny Panie Dziekanie!}	
+
+Proszę o wyrażenie zgody na przesunięcie terminu sesji egzaminacyjnej z poniższych przedmiotów:
+\begin{enumerate}
+\item Algorytmy i struktury danych
+\item Języki formalne i złożoność obliczeniowa
+\end{enumerate}
+
+Uzasadnienie:\\
+Prośbę motywuję tym, iż uległem wypadkowi w wyniku którego złamałem rękę.
+
+\closing{Z poważaniem,}
+
+Załączniki:
+\begin{enumerate}
+\item Zwolnienie lekarskie
+\end{enumerate}
+
+\end{letter}
+\end{document}
