@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1525780719 source:/home/maciej/Pulpit/kjcpp/Lista 9/main.cpp
+	<iostream>
+	<string>
+	"bst.h"
+
+1525725474 source:/home/maciej/Pulpit/kjcpp/Lista 9/bst.cpp
+	"bst.h"
+
+1525780687 /home/maciej/Pulpit/kjcpp/Lista 9/bst.h
+	<iostream>
+	<initializer_list>
+
