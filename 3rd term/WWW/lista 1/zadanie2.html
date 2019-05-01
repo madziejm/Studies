@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>tytuł</title>
+</head>
+<body>
+    Nie mogą być w sobie zagnieżdżane:
+    <ul>
+        <li>header w header</li>
+        <li>footer w header</li>
+        <li>header w footer</li>
+        <li>footer w footer</li>
+        <li>article w address</li>
+        <li>header w address</li>
+        <li>footer w address</li>
+        <li>section w address</li>
+        <li>nav w address</li>
+        <li>h1, ani h2 w address</li>
+        <li>article w h1, ani h2</li>
+        <li>aside w h1, ani h2</li>
+        <li>header w h1, ani h2</li>
+        <li>footer w h1, ani h2</li>
+        <li>address w h1, ani h2</li>
+        <li>section w h1, ani h2</li>
+        <li>nav w h1, ani h2</li>
+        <li>h1, ani h2 w h1, ani h2</li>
+        <li>article w h2</li>
+    </ul>
+    Czyli w szczególności nie można umieszczać elementów blokowych w liniowych. Ponadto walidator sugeruje dodanie nagłówka do article.
+    <article><article></article></article>
+    <article><aside></aside></article>
+    <article><header></header></article>
+    <article><footer></footer></article>
+    <article><address></address></article>
+    <article><section></section></article>
+    <article><nav></nav></article>
+    <article><h1></h1></article>
+    <article><h2></h2></article>
+    <aside><article></article></aside>
+    <aside><aside></aside></aside>
+    <aside><header></header></aside>
+    <aside><footer></footer></aside>
+    <aside><address></address></aside>
+    <aside><section></section></aside>
+    <aside><nav></nav></aside>
+    <aside><h1></h1></aside>
+    <aside><h2></h2></aside>
+    <header><article></article></header>
+    <header><aside></aside></header>
+    <header><header></header></header>
+    <header><footer></footer></header>
+    <header><address></address></header>
+    <header><section></section></header>
+    <header><nav></nav></header>
+    <header><h1></h1></header>
+    <header><h2></h2></header>
+    <footer><article></article></footer>
+    <footer><aside></aside></footer>
+    <footer><header></header></footer>
+    <footer><footer></footer></footer>
+    <footer><address></address></footer>
+    <footer><section></section></footer>
+    <footer><nav></nav></footer>
+    <footer><h1></h1></footer>
+    <footer><h2></h2></footer>
+    <address><article></article></address>
+    <address><aside></aside></address>
+    <address><header></header></address>
+    <address><footer></footer></address>
+    <address><address></address></address>
+    <address><section></section></address>
+    <address><nav></nav></address>
+    <address><h1></h1></address>
+    <address><h2></h2></address>
+    <section><article></article></section>
+    <section><aside></aside></section>
+    <section><header></header></section>
+    <section><footer></footer></section>
+    <section><address></address></section>
+    <section><section></section></section>
+    <section><nav></nav></section>
+    <section><h1></h1></section>
+    <section><h2></h2></section>
+    <nav><article></article></nav>
+    <nav><aside></aside></nav>
+    <nav><header></header></nav>
+    <nav><footer></footer></nav>
+    <nav><address></address></nav>
+    <nav><section></section></nav>
+    <nav><nav></nav></nav>
+    <nav><h1></h1></nav>
+    <nav><h2></h2></nav>
+    <h1><article></article></h1>
+    <h1><aside></aside></h1>
+    <h1><header></header></h1>
+    <h1><footer></footer></h1>
+    <h1><address></address></h1>
+    <h1><section></section></h1>
+    <h1><nav></nav></h1>
+    <h1><h1></h1></h1>
+    <h1><h2></h2></h1>
+    <h2><article></article></h2>
+    <h2><aside></aside></h2>
+    <h2><header></header></h2>
+    <h2><footer></footer></h2>
+    <h2><address></address></h2>
+    <h2><section></section></h2>
+    <h2><nav></nav></h2>
+    <h2><h1></h1></h2>
+    <h2><h2></h2></h2>
+    
+    
+</body>
+</html>
+

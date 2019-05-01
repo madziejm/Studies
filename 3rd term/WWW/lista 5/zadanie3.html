@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#colors {
+    display: inline-block;
+  /* float: left; */
+  /* width: 100px; */
+  /* height: 35px; */
+  margin: 10px;
+  padding: 1px;
+  padding-bottom: 0px;
+  border: 1px solid black; 
+}
+.toColor {
+    /* display:flex;
+  width: 100px;
+  height: 35px;
+  margin: 10px; */
+  flex: 5 5 250px;
+  flex-wrap: wrap;
+  padding: 10px;
+  border: 1px solid black;
+}
+.color{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 2px;
+}
+#green{
+    background-color: green;
+}
+#red{
+    background-color: red;
+}
+#blue{
+    background-color: blue;
+}
+#darkblue{
+    background-color:darkblue;
+}
+#white{
+    background-color: white;
+    border: 0.5px solid black;
+}
+#wheat{
+    background-color:wheat;
+}
+.flex
+{
+    display: flex;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Przeciąganie koloru</h2>
+<!-- <p>Lorem ipsum.</p> -->
+
+<caption>Kolory</caption>
+<div id="colors" >
+        <div  id="green" class="color" draggable="true" ondragstart="drag(event)"></div>
+        <div  id="red" class="color" draggable="true" ondragstart="drag(event)"></div>
+        <div  id="white" class="color" draggable="true" ondragstart="drag(event)"></div>
+        <div  id="blue" class="color" draggable="true" ondragstart="drag(event)"></div>
+        <div  id="darkblue" class="color" draggable="true" ondragstart="drag(event)"></div>
+        <div  id="wheat" class="color" draggable="true" ondragstart="drag(event)"></div>
+</div>
+
+<div class="flex">
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+    
+        <div class="flex">
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        </div>
+    
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+    </div>
+    <div class="flex">
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+
+        <div class="flex">
+            <div class="toColor"ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+            <div class="toColor"ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+            <div class="toColor"ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        </div>
+    
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+    </div>
+    <div class="flex">
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+
+        <div class="flex">
+            <div class="toColor"ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+            <div class="toColor"ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+            <div class="toColor"ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        </div>
+    
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+        <div class="toColor" ondrop="drop(event)" draggable="false" ondragover="allowDrop(event)"></div>
+    </div>
+
+
+<script>
+    randomToColor()
+    function randomToColor(){
+        flexes=document.getElementsByClassName("toColor");
+        for(var i=0; i<flexes.length; i++)
+        {
+            flexes[i].style.flex= Math.floor(Math.random()*10)+' '+Math.floor(Math.random()*10)+' '+Math.floor(Math.random()*500)+'px';
+            console.log(flexes[i].style.flex);
+        }
+    }
+function allowDrop(ev) {
+  ev.preventDefault();
+}  
+
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+//   ev.target.appendChild(document.getElementById(data));
+  ev.target.style.backgroundColor=
+    window.getComputedStyle(document.getElementById(data)).getPropertyValue('background-color')
+//   console.log(document.getElementById(data));
+//   console.log(window.getComputedStyle(document.getElementById(data)).getPropertyValue('background-color'));
+  //getElementById.style ma same puste wartości :/
+}
+</script>
+</body>
+</html>

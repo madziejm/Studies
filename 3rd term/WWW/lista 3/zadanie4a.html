@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tytuł</title>
+<style>
+    ul.products{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    ul.products li{
+        /* position: relative; */
+        display: block;
+        height: 200px;
+        margin: 5px;
+        padding: 5px;
+        color: white;
+        background-color: black;
+        font-family: sans-serif;
+
+    }
+
+    ul.products li img{
+        position: relative;
+        height: 200px;
+        width: 200px;
+        top: 0px;
+    }
+    ul.products li :not(img)
+    {
+        position: relative;
+        left: 205px;
+        top: -200px;
+        margin: 5px;
+    }
+
+    ul.products .header
+    {
+        font-weight: bold;
+    }
+    /* ul.products .description
+    {
+        aaa
+    } */
+    ul.products .price
+    {
+        color: rgb(218, 255, 149);
+    }
+    ul.products header.name
+    {
+        font-weight: bold;
+    }
+    ul.products button{
+        display: block;
+        background-color: #15a726;
+        border:1px solid #16a727;
+        border-radius: 20px;
+        color: white;
+        text-shadow:0px 1px 0px #2f6627;
+        padding: 7px;
+    }
+    ul.products button:hover{
+
+        transition: 0.5s;
+        border-color: #0df028;
+    }
+</style>
+</head>
+<body>
+    <ul class="products">
+        <li>
+            <img class="item-image" src="1.jpg">
+            <header class="name">Product Name</header>
+            <div class="description">Lorem ipsum dolor sit amet.</div>
+            <span class="price">€100.00</span>
+            <button>Add to basket</button>
+        </li>
+        <li>
+            <img class="item-image" src="2.jpg">
+            <header class="name">Product Name</header>
+            <div class="description">Lorem ipsum dolor sit amet.</div>
+            <span class="price">€100.00</span>
+            <button>Add to basket</button>
+        </li>
+        <li>
+            <img class="item-image" src="3.jpg">
+            <header class="name">Product Name</header>
+            <div class="description">Lorem ipsum dolor sit amet.</div>
+            <span class="price">€100.00</span>
+            <button>Add to basket</button>
+        </li>
+        <li>
+            <img class="item-image" src="4.jpg">
+            <header class="name">Product Name</header>
+            <div class="description">Lorem ipsum dolor sit amet.</div>
+            <span class="price">€100.00</span>
+            <button>Add to basket</button>
+        </li>
+    </ul>
+</body>
+</html>
+

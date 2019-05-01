@@ -1,0 +1,38 @@
+1.
+Konsolę w Chrome otwiera się przyciskiem F12 i wybranaiem 'Console'. Potem można wprowadzać polecenia w trybie wiersza poleceń.
+
+1.1.
+var divelement=document.createElement('div')
+divelement.id='menu'
+document.body.appendChild(divelement)
+//w ten sposób div doda się na końcu
+
+1.2.
+document.getElementById('menu').style.border='1px solid blue'
+
+1.3.
+var redlink=document.createElement('a')
+redlink.appendChild(document.createTextNode('link czerwony'))
+redlink.title='link'
+redlink.onclick=function() {document.getElementById('menu').style.border='thick solid red'}
+redlink.href='javascript:void(0)'
+redlink.id='redlink'
+document.getElementById('menu').appendChild(redlink)
+
+//dla pozostałych dwóch linków tak samo:
+
+var brownlink=document.createElement('a')
+brownlink.appendChild(document.createTextNode('link brązowy'))
+brownlink.title='link'
+brownlink.onclick=function() {document.getElementById('menu').style.border='thick solid brown'}
+brownlink.href='javascript:void(0)'
+brownlink.id='brownlink'
+document.getElementById('menu').appendChild(brownlink)
+var blacklink=document.createElement('a')
+blacklink.appendChild(document.createTextNode('link czarny'))
+blacklink.title='link'
+blacklink.onclick=function() {document.getElementById('menu').style.border='thick solid black'}
+blacklink.href='javascript:void(0)'
+blacklink.id='blacklink'
+document.getElementById('menu').appendChild(blacklink)
+

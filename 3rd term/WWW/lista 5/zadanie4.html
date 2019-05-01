@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>tytuł</title>
+
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+<style>
+    h2{
+        font-family: sans-serif;
+    }
+    button{
+        /* display: block; */
+        /* margin: 5px auto; */
+        background-color: #15a726;
+        border:1px solid #16a727;
+        border-radius: 20px;
+        color: white;
+        text-shadow:0px 1px 0px #2f6627;
+        padding: 7px;
+    }
+    canvas{
+        margin: 20px;
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+    <h2>Trójkąt Sierpińskiego </h2>
+    <button onclick="location.reload(true)">Odśwież</button>
+    <button onclick="sierpinski()">Nowy</button>
+    <canvas id="sierpinski" width="1000" height="1000">Your browser does not support the HTML5 canvas tag.</canvas>
+    <script>
+        var canvas = document.getElementById("sierpinski");
+        var canvasWidth = canvas.width;
+        var canvasHeight = canvas.height;
+        var ctx = canvas.getContext('2d');
+        sierpinski();
+        function drawPixel (x, y) {
+            ctx.fillStyle=randomColor();
+            ctx.fillRect(x,y,1,1); // fill in the pixel at (10,10)
+        }
+        function updateCanvas() {
+        ctx.putImageData(canvasData, 0, 0);
+        }
+        function randomx()
+        {
+            return Math.floor(Math.random()*canvas.width);
+        }
+        function randomy()
+        {
+            return Math.floor(Math.random()*canvas.height);
+        }
+        
+        function randomColor() {
+        var r = 255*Math.random()|0,
+            g = 255*Math.random()|0,
+            b = 255*Math.random()|0;
+        return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+        function sierpinski()
+        {
+            ax=randomx(); ay=randomy();
+            bx=randomx(); by=randomy();
+            cx=randomx(); cy=randomy();
+            Px=randomx(); Py=randomy();
+            // while
+            
+            for(var i=0; i<100000; i++)
+            {
+                // console.log(Px, Py);
+                switch(Math.floor(Math.random()*3))
+                {
+                    case 0:
+                        Px=(Px+ax)/2;
+                        Py=(Py+ay)/2;
+                        break;
+                    case 1:
+                        Px=(Px+bx)/2;
+                        Py=(Py+by)/2;
+                        break;
+                    case 2:
+                        Px=(Px+cx)/2;
+                        Py=(Py+cy)/2;
+                        break;
+                }
+                drawPixel(Math.floor(Px), Math.floor(Py));
+            }
+            // for(var i=0; i<canvasWidth; i++)
+            // {
+            //     for(var j=0; j<canvasHeight; j++)
+            //     {
+            //         drawPixel(i, j);
+            //     }
+            // }
+        }
+    </script>
+</body>
+</html>
+

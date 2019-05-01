@@ -1,0 +1,41 @@
+body{
+    background-color: whitesmoke;
+}
+
+#time {
+    /* text-align: center; */
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+.square {
+    height: 150px;
+    width: 150px;
+    padding: 5px;
+    display: block;
+    text-align: center;
+    position: relative;
+    line-height: 150px;
+    /* w ten sposób tekst będzie wyśrodkowany w pionie (o ile mieści się w jednej linii)*/
+    color: white;
+    font-size: 20px;
+    background-color: hotpink;
+    border: solid 1px white;
+    transition: background-color 1s, border 1s;
+    box-sizing: border-box; 
+    /*to sprawi, że krawędź nie powiększy pudełka*/
+}
+.outerSquare {
+    font-size: 20px;
+    background-color: hotpink;
+    border: solid 1px white;
+    transition: background-color 1s, border 1s;
+}
+.outerSquare.hovered{
+    background-color: white;
+    border: solid thin antiquewhite;
+}
+#innerSquare {
+    background-color: black;
+    border: solid 1px white;
+}

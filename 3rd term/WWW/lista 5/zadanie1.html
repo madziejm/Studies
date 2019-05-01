@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang=pl>
+<head>
+<meta charset="utf-8">
+<title>Slider</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+#imageSlider {
+    position:relative;
+    overflow:hidden; /* poza divem ucinane – ważne, bo zdjęcie wchodzi z boku */
+    height: 150px;
+    width:250px;
+}
+
+#imageSlider img {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:0;
+    height: 150px;
+    width:250px;
+}
+
+#imageSlider img.active {
+    z-index:2;
+}
+
+#imageSlider img.last-active {
+    z-index:1;
+}
+#slider{
+    width: 230px;
+    margin: 10px
+}
+</style>
+</head>
+<body>
+    <p>
+        <label for="seconds">Liczba sekund: </label>
+        <input type="text" id="seconds" readonly>
+        </p>
+    <div id="slider"></div>
+    <div id="imageSlider">
+        <img src="../lista 3/1.jpg" alt="" class="active" />
+        <img src="../lista 3/2.jpg" alt=""/>
+        <img src="../lista 3/3.jpg" alt=""/>
+        <img src="../lista 3/4.jpg" alt=""/>
+        <img src="../lista 3/5.jpg" alt=""/>
+    </div>
+<script>
+    var slideAnimationTime=500;
+    var slideTime=5000;
+
+  $(function() { //funkcja w miejscu
+    $("#slider").slider(
+        {value: 5,
+        min: 1,
+        max: 5,
+        step: 1,
+        slide: function(event, ui){
+            $("#seconds").val(ui.value);
+            modifySlideTime(parseInt(ui.value)*1000);
+        }
+     });
+    $("#seconds").val($("#slider").slider("value")); //inicjalizacja pola
+        });
+    function slideSlider() {
+        var $active = $('#imageSlider img.active');
+
+        if ( $active.length == 0 ) $active = $('#imageSlider img:last');
+
+        var $next =  $active.next().length ? $active.next()
+            : $('#imageSlider img:first');
+
+        // $.addClass('active');
+
+        $next.css({left:"-=50px"});
+        $active
+        .addClass('last-active')
+        .animate({opacity: 0.0, left: "+=50px"}, slideAnimationTime, function(){
+            $active.css({left:"-=50px"}); //tutaj wykonuje się *po* animacji
+            $active.css({opacity: 1.0});
+        }
+    );
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0, left: "+=50px"}, slideAnimationTime, function() {
+            $active.removeClass('active last-active');
+        });
+    }
+
+    var intervalId=setInterval("slideSlider()", slideTime ); //ms //trzeba zapamiętać, żeby można było odwołać
+    $('#imageSlider').hover(
+        function(){
+            clearInterval(intervalId);
+        },
+        function(){
+            intervalId=setInterval("slideSlider()", slideTime); //ms
+        }
+    );
+
+    function modifySlideTime(miliseconds) 
+    {
+        clearInterval(intervalId)
+        intervalId=setInterval("slideSlider()", miliseconds);
+    }
+
+</script>
+</body>
+</html>
+

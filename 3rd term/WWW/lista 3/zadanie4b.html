@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tytuł</title>
+<style>
+    .products ul{
+    background-color: rgb(19, 19, 19);
+    }
+    ul.productsRow{
+        position: relative;
+        height: 305px;
+        /* list-style: none;
+        margin: 0; */
+        margin-left: 0; margin-right: 0; margin-top: 10px;
+        margin-bottom: 15px;
+        padding: 0;
+    }
+    ul.productsRow li{
+        display: block;
+        width: 200px;
+        height: 300px;
+        text-align: center;
+        color: white;
+        background-color: black;
+        font-family: sans-serif;
+        padding: 5px;
+        position: absolute;
+    }
+    ul.productsRow li:hover{
+        transition:0.5s;
+        background-color: rgb(19, 19, 19);
+    }
+    ul.productsRow :nth-child(1)
+    {
+        left: 0px;
+        /* top: 0px */
+        /* top: 5px; */
+    }
+    ul.productsRow :nth-child(2)
+    {
+        left: 220px;
+        /* top: 0px */
+        /* top: 5px; */
+    }
+    ul.productsRow :nth-child(3)
+    {
+        left: 440px;
+        /* top: 0px */
+        /* top: 5px; */
+    }
+    ul.productsRow :nth-child(4)
+    {
+        left: 660px;
+        /* top: 0px */
+        /* top: 5px; */
+    }
+
+    ul.productsRow img.item-image{
+        /* position: relative; */
+        height: 200px;
+        width: 200px;
+    }
+
+    ul.productsRow header.name
+    {
+        font-weight: bold;
+        margin: 5px 0;
+    }
+    ul.productsRow .price
+    {
+        color: rgb(218, 255, 149);
+    }
+    ul.productsRow button{
+        display: block;
+        margin: 5px auto;
+        background-color: #15a726;
+        border:1px solid #16a727;
+        border-radius: 20px;
+        color: white;
+        text-shadow:0px 1px 0px #2f6627;
+        padding: 7px;
+    }
+    ul.productsRow button:hover{
+
+        transition: 0.5s;
+        background-color: #0df028;
+    }
+</style>
+</head>
+<body>
+<div id="products">
+    <ul class="productsRow">
+        <li>
+            <img class="item-image" src="1.jpg">
+            <header class="name">Product Name</header>
+            <span class="price">€100.00</span>
+            <button>Add to basket</button>
+        </li>
+        <li>
+            <img class="item-image" src="2.jpg">
+            <header class="name">Product Name</header>
+            <span class="price">€100.00</span>
+            <button>Add to basket</button>
+        </li>
+        <li>
+            <img class="item-image" src="3.jpg">
+            <header class="name">Product Name</header>
+            <span class="price">€100.00</span>
+            <button>Add to basket</button>
+        </li>
+        <li>
+            <img class="item-image" src="4.jpg">
+            <header class="name">Product Name</header>
+            <span class="price">€100.00</span>
+            <button>Add to basket</button>
+        </li>
+    </ul>
+    <ul class="productsRow">
+            <li>
+                <img class="item-image" src="5.jpg">
+                <header class="name">Product Name</header>
+                <span class="price">€100.00</span>
+                <button>Add to basket</button>
+            </li>
+            <li>
+                <img class="item-image" src="6.jpg">
+                <header class="name">Product Name</header>
+                <span class="price">€100.00</span>
+                <button>Add to basket</button>
+            </li>
+            <li>
+                <img class="item-image" src="7.jpg">
+                <header class="name">Product Name</header>
+                <span class="price">€100.00</span>
+                <button>Add to basket</button>
+            </li>
+            <li>
+                <img class="item-image" src="8.jpg">
+                <header class="name">Product Name</header>
+                <span class="price">€100.00</span>
+                <button>Add to basket</button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

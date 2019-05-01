@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tytuł</title>
+<style>
+ul.imageBullet{
+    list-style-image: url("halftone-744404_960_720.png");
+}
+
+ul.beforeBullet {
+	position: relative;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 1.2em;
+}
+ul.beforeBullet li:before {
+    background-image: url("halftone-744404_960_720.png");
+    content:""; /*wymagane*/
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+	left: 0;
+}
+ul.backgroundBullet {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.backgroundBullet li {
+    background-image: url("halftone-744404_960_720.png");
+    min-height: 20px;
+    background-repeat: no-repeat;
+    /* background-position: 0 .4em; */
+    padding-left: 1.5em;
+}
+</style>
+</head>
+<body>
+
+Poprzes użycie właściwości CSS:
+<ul class="imageBullet">
+    <li>aa</li>
+    <li>bb</li>
+    <li>cc</li>
+</ul>
+
+Poprzez użycie pseudoklasy ::before:
+<ul class="beforeBullet">
+        <li>aa</li>
+        <li>bb</li>
+        <li>cc</li>
+</ul>
+
+Poprzez użycie backgroud:
+<ul class="backgroundBullet">
+        <li>aa</li>
+        <li>bb</li>
+        <li>cc</li>
+    </ul>
+</body>
+</html>
+

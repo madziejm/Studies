@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title> </title>
+<style>
+        #foo:before
+        {
+            content: "id: foo ";
+        }
+        #bar:before
+        {
+            content: "id: bar ";
+        }
+        .foo:before
+        {
+            content: "class: foo ";
+        }
+        .bar:before
+        {
+            content: "class: bar ";
+        }
+        #foo
+        {
+            content: "id: foo ";
+            background-color: aqua;
+        }
+        #bar
+        {
+            content: "id: bar ";
+            background-color:lawngreen;
+        }
+        .foo
+        {
+            content: "class: foo ";
+            background-color:salmon;
+        }
+        .bar
+        {
+            content: "class: bar ";
+            background-color:peachpuff;
+    }
+</style>
+</head>
+<body>
+        Selektor class wybiera elementy z odpowiadającym atrybutem class.
+        Selektor id wybiera elementy z odpowiadającym atrybutem id.
+    <div id="foo">Lorem ipsum</div>
+    <div id="bar">Lorem ipsum</div>    
+    <div class="foo">Lorem ipsum</div>
+    <div class="bar">Lorem ipsum</div>
+    <div class="foo">Lorem ipsum</div>
+    <div class="foo">Lorem ipsum</div>
+    <div class="bar">Lorem ipsum</div>
+
+
+
+</body>
+</html>
+

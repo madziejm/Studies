@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tytuł</title>
+<style>
+/* div{
+    background-color: black;
+} */
+body{
+    background-color:rgb(221, 221, 221)
+}
+.flex1, .flex2{
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    /* display: flex; odziedziczone */
+}
+.flex1{
+    flex: 1 1 250px;
+    background-color: white;
+    color: black;
+}
+.flex2{
+    flex: 5 5 250px;
+    background-color: black;
+    color: white;
+}
+
+.close-fitting-flex-container, .short-flex-container, .long-flex-container{
+    display: flex;
+}
+.close-fitting-flex-container{
+    width: 500px;
+}
+.short-flex-container{
+    width: 300px;
+}
+.long-flex-container{
+    width: 700px;
+}
+
+</style>
+</head>
+<body>
+
+<p>flex: 1 1 250px oraz flex: 5 5 250px w div o szerokości 500px. Oba flex uzyskują swoją preferowaną szerokość.</p>
+<div class="close-fitting-flex-container">
+    <div class="flex1">1</div>
+    <div class="flex2">2</div>
+</div>    
+
+<p>flex: 1 1 250px oraz flex: 5 5 250px w div o szerokości 300px. Tutaj jest mniej miejsca, niż potrzeba, by flex miały preferowaną szerokość. Parametry flex-shrink określą proporcje w jaki sposób dwa flex zostaną zmniejszone.</p>
+<div class="short-flex-container">
+    <div class="flex1">1</div>
+    <div class="flex2">2</div>
+</div>
+<p>flex: 1 1 250px oraz flex: 5 5 250px w div o szerokości 700px. Tutaj jest więcej miejsca, niż potrzeba, by flex miały preferowaną szerokość. Parametry flex-grow określą proporcje w jaki sposób dwa flex zostaną zwiększone.</p>
+<div class="long-flex-container">
+        <div class="flex1">1</div>
+        <div class="flex2">2</div>
+</div>
+</body>
+</html>
+

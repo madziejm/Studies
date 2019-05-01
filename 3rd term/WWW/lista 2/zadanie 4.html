@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Zadanie 4</title>
+<style>
+    h2 {
+        overflow: hidden;
+        text-align: center;
+    }
+    h2:after,
+    h2:before {
+        background-color: black;
+        content: "";
+        display: inline-block;
+        height: 2px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+    }
+    h2:before {
+        right: 1px;
+        margin-left: -50%;
+    }
+    h2:after {
+        left: 1px;
+        margin-right: -50%;
+    }
+    quote {
+        border-left: 10px solid #ccc;
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+    }
+    quote:before{
+        color: #ccc;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
+    quote p{
+        display: inline;
+    }
+</style>
+</head>
+<body>
+<h2>Nagłówek</h2>
+<h2>Inny nagłówek</h2>
+<quote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></quote>
+<!-- https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ -->
+<!-- http://vclever.com/blog/how-to-style-a-heading-with-horizontal-lines-either-side-using-css/ -->
+
+</body>
+</html>
+

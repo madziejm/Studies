@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang=pl>
+<head>
+<meta charset="utf-8">
+<style>
+    a:link{
+        color: red;
+    }
+    a:link::before
+    {
+        content: "Łącze: ";
+    }
+    a:hover
+    {
+        color: violet;
+    }
+    a:visited
+    {
+        color:darkblue;
+    }
+    a:hover::before
+    {
+        content:"Najechane łącze: ";
+    }
+    /* a:visited::before
+    {
+        content: "Odwiedzone łącze: ";
+    } */
+</style>
+<title>lista 2 — zadanie 2</title>
+</head>
+<body>
+<a href="zadanie1.html">Zadanie 1</a>
+<div style="color: darkblue">Takiego koloru będzie odwiedzone łącze.</div>
+</body>
+</html>
+

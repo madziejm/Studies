@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Formularz</title>
+
+<style>
+input:invalid{
+    color:red;
+}
+</style>
+
+</head>
+<body>
+    <form>
+        Numer konta<input name="numer_konta" data-form-field-type="account number"type="text" placeholder="Numer konta" autofocus>
+        Imię<input name="imie" data-form-field-type="name">
+        Nazwisko<input name="nazwisko" data-form-field-type="name">
+        e–mail<input name="email" data-form-field-type="email">
+        Kod pocztowy<input name="kod_pocztowy" data-form-field-type="postcode" >
+        Miasto<input name="miasto" data-form-field-type="name">
+        Kwota<input name="kwota" data-form-field-type="amount" >
+        Data<input name="data" data-form-field-type="date from now" type="date">
+        <input type="reset" value="reset">
+        <input type="submit" value="wyślij">
+    </form>
+
+
+    <!--
+        name="numer_konta" pattern="[0-9]{26}" 
+        name="imie" data-field type="text"
+        name="nazwisko" type="text"
+        name="email" type="email"
+        name="kod_pocztowy" pattern= type="text"
+        name="miasto" data-form-field-type="account number" type="text"
+        name="kwota" type="number"
+        name="data" type="date"
+    -->
+<script type="text/javascript" src="2.js"></script>
+</body>
+</html>
+

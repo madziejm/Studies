@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+
+span {
+  color: green;
+    background-color: yellow;
+}
+
+div
+{
+    background-color:tomato;
+    color: white;
+}
+
+div span
+{
+    background-color:white;
+    color: tomato;
+}
+
+</style>
+</head>
+<body>
+Selektor descendant z podanymi dwoma elementami a i b dopasowuje się do elementów b obejmowanych przez znacznik a.
+<span>Wszystkie &lt;span&gt; na zielono–żółto. </span>
+<span>Wszystkie &lt;span&gt; na zielono–żółto. </span>
+<span>Wszystkie &lt;span&gt; na zielono–żółto. </span>
+<span>Wszystkie &lt;span&gt; na zielono–żółto. </span>
+
+<div>Wszystkie div na biało–czerwono.</div>
+<span>Wszystkie &lt;span&gt; na zielono–żółto. </span>
+
+<div>Wszystkie div na biało–czerwono.<span>Wszystkie &lt;span&gt; wewnątrz &lt;div&gt; na biało–czerwono. </span></div>
+<div>Wszystkie div na biało–czerwono.</div>
+
+<div>&lt;div&gt
+<div>Wszystkie div na biało–czerwono.<span>Wszystkie &lt;span&gt; wewnątrz (również niebezpośrednio) &lt;div&gt; na biało–czerwono. </span></div>
+<div>Wszystkie div na biało–czerwono.</div></body>
+&lt;/div&gt</div>
+</body>
+</html>
+

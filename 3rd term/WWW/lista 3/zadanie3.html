@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tytuł</title>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        color: white;
+        border: 1px solid whitesmoke;
+        text-align: center;
+        line-height: 100px;
+        top: 200px;
+        left: 100px;
+    }
+
+    div.static
+    {
+        position: static;
+    }
+    div.relative
+    {
+        position: relative;
+        /* left: 20px; */
+    }
+    div.absolute
+    {
+        position: absolute;
+    }
+    div.fixed
+    {
+        position: fixed;
+    }
+
+</style>
+</head>
+<body>
+    <p>Wszystkie div mają ustawione top: 200px; left: 100px;</p>
+    <p>Static sprawia, że top i left nie są uwzględniane.</p>
+    <p>Relative sprawia, że element jest pozycjonowany względem pozycji, którą posiadałby normalnie bez top i left. Obszar, który normalnie zajmowałby element nie jest "uwalniany".</p>
+    <p>Absolute sprawia, że element jest przesuwany względem krawędzi paddingu elementu pierwszego elementu obejmującego który nie jest static.</p>
+    <p>Fixed sprawia, że element jest pozycjonowany względem krawędzi okna przeglądarki, również jeśli treść zostanie przewinięta.</p>
+    <div class="static">static</div>
+    <div class="static">static</div>
+    <div class="static">static</div>
+
+
+    <div class="relative">relative</div>
+    <div class="relative">relative</div>
+    <div class="relative">relative</div>
+
+
+    <div class="absolute">absolute</div>
+    <div class="absolute">absolute</div>
+    <div class="absolute">absolute</div>
+
+
+    <div class="fixed">fixed</div>
+    <div class="fixed">fixed</div>
+    <div class="fixed">fixed</div>
+
+
+</body>
+</html>
+

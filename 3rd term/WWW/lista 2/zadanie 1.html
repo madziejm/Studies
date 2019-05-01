@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>tytuł</title>
+
+    <link rel="stylesheet" href="style1.css">
+    <style>
+    p { color: violet !important; } /* zadziała mimo, że jest wcześniej*/
+    p { color: green; }
+    div { color: blue; }
+    h2 { color: red; }
+    </style>
+
+    <!-- na odwrót: -->
+    <!-- <style>
+        p { color: violet !important; } /* zadziała mimo, że jest wcześniej*/
+        p { color: green; }
+        div { color: blue; }
+        h2 { color: red; }
+    </style>
+    <link rel="stylesheet" href="style1.css"> -->
+
+</head>
+<body>
+    <h2>nagłówek</h2>
+    <p>akapit</p>
+    <div>div</div>
+
+
+    <div>
+            div
+            <p>Paragraf w div</p>
+        </div>    
+    <div style="color:orange;">
+            div
+            <p>Paragraf w div</p>
+    </div>
+</body>
+</html>
+

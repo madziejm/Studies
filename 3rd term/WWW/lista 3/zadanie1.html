@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tytuł</title>
+<style>
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#box {
+  border: 10px solid black;
+  padding: 25px;
+  margin: 25px;
+  height: 240px;
+  width: 320px;
+  background: url(obrazek.jpg);
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div style="border: 1px solid black; margin: 0px; padding: 0px; display:inline-block; /*wtedy ma rozmiar dostosowany do dzieci*/">
+    <div id="box">
+        Ten div składa się z obrazka 320px x 240px, paddingu (na biało) 25px, border (na czarno) 10px i margin (widoczny cienką kreską będącą obramowaniem innego div, który bezpośrednio go obejmuje) 25px.
+    </div>
+</div>
+<p>Display:block to domyślna własność div, która mówi o wyświetlaniu jako blok.
+Display:inline to domyślna własność span, która mówi o wyświetlaniu jako element liniowy.
+</p>
+</body>
+</html>
+
