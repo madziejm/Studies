@@ -12,6 +12,6 @@ What I've got to know is:
  * examine: `x/x $esp`, `x/d $esp`, `x/i $esi` (current instruction lookup), etc.
  * print: `print/x 1023`, `print (char*)<string_address>`, `print *(char**)<address>` (string located at address in <address>)
  * set: `set $eax=42`
- * continue
+ * `continue`
  
  Plasma command to print function: `plasma -i -nc a.out v function_identifier`
