@@ -1,0 +1,229 @@
+function main (.text) {
+    0x1060: push rbx
+    # 0x1061: cmp edi, 1
+    # 0x1064: je 0x1162
+    if (edi != 1) {
+        0x106a: rbx = rsi
+        # 0x106d: cmp edi, 2
+        # 0x1070: jne 0x1192
+        if (edi == 2) {
+            0x1076: rdi = *(rsi + 8)
+            0x107a: rsi = 0x24e4 "r"
+            0x1081: call fopen
+            0x1086: *(infile) = rax
+            # 0x108d: test rax, rax
+            # 0x1090: je 0x1175
+            if (rax != 0) {
+                goto ret_0x1096
+            }
+            0x1175: rdx = *(rbx + 8)
+            0x1179: rsi = *(rbx)
+            0x117c: rdi = 0x24e6 "%s: Error: Couldn't open %s\n"
+            0x1183: call printf
+            0x1188: edi = 8
+            0x118d: call exit
+        }
+        ret_0x1192:
+        0x1192: rsi = *(rsi)
+        0x1195: rdi = 0x2503 "Usage: %s [<input_file>]\n"
+        0x119c: eax = 0
+        0x11a1: call printf
+        0x11a6: edi = 8
+        0x11ab: call exit
+    }
+    0x1162: rax = *(stdin)
+    0x1169: *(infile) = rax
+    0x1170: jmp ret_0x1096
+    ret_0x1096:
+    0x1096: call initialize_bomb
+    0x109b: rdi = 0x2568 "Welcome to my fiendish little ..."
+    0x10a2: call puts
+    0x10a7: rdi = 0x25a8 "which to blow yourself up. Hav..."
+    0x10ae: call puts
+    0x10b3: call read_line
+    0x10b8: rdi = rax
+    0x10bb: call phase_1
+    0x10c0: call phase_defused
+    0x10c5: rdi = 0x25d8 "Phase 1 defused. How about the..."
+    0x10cc: call puts
+    0x10d1: call read_line
+    0x10d6: rdi = rax
+    0x10d9: call phase_2
+    0x10de: call phase_defused
+    0x10e3: rdi = 0x251d "That's number 2.  Keep going!"
+    0x10ea: call puts
+    0x10ef: call read_line
+    0x10f4: rdi = rax
+    0x10f7: call phase_3
+    0x10fc: call phase_defused
+    0x1101: rdi = 0x253b "Halfway there!"
+    0x1108: call puts
+    0x110d: call read_line
+    0x1112: rdi = rax
+    0x1115: call phase_4
+    0x111a: call phase_defused
+    0x111f: rdi = 0x2608 "So you got that one.  Try this..."
+    0x1126: call puts
+    0x112b: call read_line
+    0x1130: rdi = rax
+    0x1133: call phase_5
+    0x1138: call phase_defused
+    0x113d: rdi = 0x254a "Good work!  On to the next..."
+    0x1144: call puts
+    0x1149: call read_line
+    0x114e: rdi = rax
+    0x1151: call phase_6
+    0x1156: call phase_defused
+    0x115b: eax = 0
+    0x1160: pop rbx
+    0x1161: ret
+}
+function secret_phase (.text) {
+    0x14e1: push rbx
+    0x14e2: call read_line
+    0x14e7: edx = 10
+    0x14ec: esi = 0
+    0x14f1: rdi = rax
+    0x14f4: call strtol
+    0x14f9: rbx = rax
+    0x14fc: eax = rax - 1
+    # 0x14ff: cmp eax, 0x3e8
+    # 0x1504: ja 0x152b
+    if (eax (unsigned) > 0x3e8 "d") {
+        0x152b: call explode_bomb
+        0x1530: jmp 0x1506
+    }
+    0x1506: esi = ebx
+    0x1508: rdi = n1
+    0x150f: call fun7
+    # 0x1514: test eax, eax
+    # 0x1516: jne 0x1532
+    if (eax != 0) {
+        0x1532: call explode_bomb
+        0x1537: jmp ret_0x1518
+    }
+    ret_0x1518:
+    0x1518: rdi = 0x2660 "Wow! You've defused the secret..."
+    0x151f: call puts
+    0x1524: call phase_defused
+    0x1529: pop rbx
+    0x152a: ret
+}
+function main (.text) {
+    0x1060: push rbx
+    # 0x1061: cmp edi, 1
+    # 0x1064: je 0x1162
+    if (edi != 1) {
+        0x106a: rbx = rsi
+        # 0x106d: cmp edi, 2
+        # 0x1070: jne 0x1192
+        if (edi == 2) {
+            0x1076: rdi = *(rsi + 8)
+            0x107a: rsi = 0x24e4 "r"
+            0x1081: call fopen
+            0x1086: *(infile) = rax
+            # 0x108d: test rax, rax
+            # 0x1090: je 0x1175
+            if (rax != 0) {
+                goto ret_0x1096
+            }
+            0x1175: rdx = *(rbx + 8)
+            0x1179: rsi = *(rbx)
+            0x117c: rdi = 0x24e6 "%s: Error: Couldn't open %s\n"
+            0x1183: call printf
+            0x1188: edi = 8
+            0x118d: call exit
+        }
+        ret_0x1192:
+        0x1192: rsi = *(rsi)
+        0x1195: rdi = 0x2503 "Usage: %s [<input_file>]\n"
+        0x119c: eax = 0
+        0x11a1: call printf
+        0x11a6: edi = 8
+        0x11ab: call exit
+    }
+    0x1162: rax = *(stdin)
+    0x1169: *(infile) = rax
+    0x1170: jmp ret_0x1096
+    ret_0x1096:
+    0x1096: call initialize_bomb
+    0x109b: rdi = 0x2568 "Welcome to my fiendish little ..."
+    0x10a2: call puts
+    0x10a7: rdi = 0x25a8 "which to blow yourself up. Hav..."
+    0x10ae: call puts
+    0x10b3: call read_line
+    0x10b8: rdi = rax
+    0x10bb: call phase_1
+    0x10c0: call phase_defused
+    0x10c5: rdi = 0x25d8 "Phase 1 defused. How about the..."
+    0x10cc: call puts
+    0x10d1: call read_line
+    0x10d6: rdi = rax
+    0x10d9: call phase_2
+    0x10de: call phase_defused
+    0x10e3: rdi = 0x251d "That's number 2.  Keep going!"
+    0x10ea: call puts
+    0x10ef: call read_line
+    0x10f4: rdi = rax
+    0x10f7: call phase_3
+    0x10fc: call phase_defused
+    0x1101: rdi = 0x253b "Halfway there!"
+    0x1108: call puts
+    0x110d: call read_line
+    0x1112: rdi = rax
+    0x1115: call phase_4
+    0x111a: call phase_defused
+    0x111f: rdi = 0x2608 "So you got that one.  Try this..."
+    0x1126: call puts
+    0x112b: call read_line
+    0x1130: rdi = rax
+    0x1133: call phase_5
+    0x1138: call phase_defused
+    0x113d: rdi = 0x254a "Good work!  On to the next..."
+    0x1144: call puts
+    0x1149: call read_line
+    0x114e: rdi = rax
+    0x1151: call phase_6
+    0x1156: call phase_defused
+    0x115b: eax = 0
+    0x1160: pop rbx
+    0x1161: ret
+}
+function phase_defused (.text) {
+    # 0x1888: cmp dword ptr [rip + 0x202edd], 6
+    # 0x188f: je 0x1893
+    if (*(num_input_strings) == 6) {
+        0x1893: rsp -= 104
+        0x1897: rcx = rsp + 8
+        0x189c: rdx = rsp + 12
+        0x18a1: r8 = rsp + 16
+        0x18a6: rsi = 0x2859 "%d %d %s"
+        0x18ad: rdi = 0x204870
+        0x18b4: eax = 0
+        0x18b9: call __isoc99_sscanf
+        # 0x18be: cmp eax, 3
+        # 0x18c1: je 0x18d5
+        if (eax == 3) {
+            0x18d5: rdi = rsp + 16
+            0x18da: rsi = 0x2862 "DrEvil"
+            0x18e1: call strings_not_equal
+            # 0x18e6: test eax, eax
+            # 0x18e8: jne 0x18c3
+            if (eax == 0) {
+                0x18ea: rdi = 0x2738 "Curses, you've found the secre..."
+                0x18f1: call puts
+                0x18f6: rdi = 0x2760 "But finding it and solving it ..."
+                0x18fd: call puts
+                0x1902: eax = 0
+                0x1907: call secret_phase
+                0x190c: jmp 0x18c3
+            }
+        }
+        0x18c3: rdi = 0x2798 "Congratulations! You've defuse..."
+        0x18ca: call puts
+        0x18cf: rsp += 104
+        0x18d3: jmp ret_0x1891
+    }
+    ret_0x1891:
+    0x1891: ret
+}

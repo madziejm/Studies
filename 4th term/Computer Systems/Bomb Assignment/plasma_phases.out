@@ -1,0 +1,390 @@
+function phase_1 (.text) {
+    0x11b0: rsp -= 8
+    0x11b4: rsi = 0x2630 "You can Russia from land here ..."
+    0x11bb: call strings_not_equal
+    # 0x11c0: test eax, eax
+    # 0x11c2: jne 0x11c9
+    if (eax != 0) {
+        0x11c9: call explode_bomb
+        0x11ce: jmp ret_0x11c4
+    }
+    ret_0x11c4:
+    0x11c4: rsp += 8
+    0x11c8: ret
+}
+function phase_2 (.text) {
+    0x11d0: push rbp
+    0x11d1: push rbx
+    0x11d2: rsp -= 40
+    0x11d6: rsi = rsp
+    0x11d9: call read_six_numbers
+    # 0x11de: cmp dword ptr [rsp], 0
+    # 0x11e2: jne 0x11eb
+    if (*(rsp) == 0) {
+        # 0x11e4: cmp dword ptr [rsp + 4], 1
+        # 0x11e9: je 0x11f0
+        and if (*(rsp + 4) == 1)
+        goto 0x11f0
+    } else {
+        0x11eb: call explode_bomb
+    }
+    0x11f0: rbx = rsp
+    0x11f3: rbp = rsp + 16
+    0x11f8: jmp loop_0x1203
+    loop {
+        loop_0x1203:
+        0x1203: eax = *(rbx + 4)
+        0x1206: eax += *(rbx)
+        # 0x1208: cmp dword ptr [rbx + 8], eax
+        # 0x120b: je 0x11fa
+        if (*(rbx + 8) != eax) {
+            0x120d: call explode_bomb
+            0x1212: jmp 0x11fa
+        }
+        0x11fa: rbx += 4
+        # 0x11fe: cmp rbx, rbp
+        # 0x1201: je 0x1214
+        if (rbx == rbp)  goto ret_0x1214
+    } ; loop_0x1203
+
+    ret_0x1214:
+    0x1214: rsp += 40
+    0x1218: pop rbx
+    0x1219: pop rbp
+    0x121a: ret
+}
+function phase_3 (.text) {
+    0x121b: rsp -= 24
+    0x121f: rcx = rsp + 8
+    0x1224: rdx = rsp + 12
+    0x1229: rsi = 0x280f "%d %d"
+    0x1230: eax = 0
+    0x1235: call __isoc99_sscanf
+    # 0x123a: cmp eax, 1
+    # 0x123d: jle 0x125a
+    if (eax <= 1) {
+        0x125a: call explode_bomb
+        0x125f: jmp 0x123f
+    }
+    # 0x123f: cmp dword ptr [rsp + 0xc], 7
+    # 0x1244: ja 0x1292
+    if (*(rsp + 12) (unsigned) <= 7) {
+        0x1246: eax = *(rsp + 12)
+        0x124a: rdx = 0x26a0
+        0x1251: movsxd rax, *(rdx + (rax*4))
+        0x1255: rax += rdx
+        ret_0x1258:
+        0x1258: jmp rax # STOPPED
+    }
+    0x1292: call explode_bomb
+    0x1297: eax = 0
+    0x129c: jmp 0x12a3
+    # 0x12a3: cmp eax, dword ptr [rsp + 8]
+    # 0x12a7: je 0x12ae
+    if (eax != *(rsp + 8)) {
+        0x12a9: call explode_bomb
+    }
+    ret_0x12ae:
+    0x12ae: rsp += 24
+    0x12b2: ret
+}
+function phase_4 (.text) {
+    0x12ec: rsp -= 24
+    0x12f0: rcx = rsp + 12
+    0x12f5: rdx = rsp + 8
+    0x12fa: rsi = 0x280f "%d %d"
+    0x1301: eax = 0
+    0x1306: call __isoc99_sscanf
+    # 0x130b: cmp eax, 2
+    # 0x130e: je 0x1333
+    if (eax != 2) {
+        0x1310: call explode_bomb
+    } else {
+        0x1333: eax = *(rsp + 12)
+        0x1337: eax -= 2
+        # 0x133a: cmp eax, 2
+        # 0x133d: jbe 0x1315
+        if (eax (unsigned) > 2) {
+            0x133f: jmp 0x1310
+        }
+    }
+    0x1315: esi = *(rsp + 12)
+    0x1319: edi = 9
+    0x131e: call func4
+    # 0x1323: cmp eax, dword ptr [rsp + 8]
+    # 0x1327: je 0x132e
+    if (eax != *(rsp + 8)) {
+        0x1329: call explode_bomb
+    }
+    ret_0x132e:
+    0x132e: rsp += 24
+    0x1332: ret
+}
+function phase_5 (.text) {
+    0x1341: rsp -= 24
+    0x1345: rcx = rsp + 8
+    0x134a: rdx = rsp + 12
+    0x134f: rsi = 0x280f "%d %d"
+    0x1356: eax = 0
+    0x135b: call __isoc99_sscanf
+    # 0x1360: cmp eax, 1
+    # 0x1363: jle 0x13b2
+    if (eax <= 1) {
+        0x13b2: call explode_bomb
+        0x13b7: jmp 0x1365
+    }
+    0x1365: eax = *(rsp + 12)
+    0x1369: eax &= 15
+    0x136c: *(rsp + 12) = eax
+    # 0x1370: cmp eax, 0xf
+    # 0x1373: je 0x13a8
+    if (eax != 15) {
+        0x1375: ecx = 0
+        0x137a: edx = 0
+        0x137f: rsi = array.3092
+        loop {
+            loop_0x1386:
+            0x1386: edx += 1
+            0x1389: rax = eax
+            0x138b: eax = *(rsi + (rax*4))
+            0x138e: ecx += eax
+            # 0x1390: cmp eax, 0xf
+            # 0x1393: jne 0x1386
+            if (eax == 15)  goto break_0x1395
+        } ; loop_0x1386
+
+        break_0x1395:
+        0x1395: *(rsp + 12) = 15
+        # 0x139d: cmp edx, 0xf
+        # 0x13a0: jne 0x13a8
+        if (edx == 15) {
+            # 0x13a2: cmp ecx, dword ptr [rsp + 8]
+            # 0x13a6: je 0x13ad
+            and if (ecx == *(rsp + 8))
+            goto ret_0x13ad
+        } else {
+            goto 0x13a8
+        }
+    } else {
+        0x13a8: call explode_bomb
+    }
+    ret_0x13ad:
+    0x13ad: rsp += 24
+    0x13b1: ret
+}
+function phase_6 (.text) {
+    0x13b9: push r13
+    0x13bb: push r12
+    0x13bd: push rbp
+    0x13be: push rbx
+    0x13bf: rsp -= 88
+    0x13c3: r12 = rsp + 48
+    0x13c8: rsi = r12
+    0x13cb: call read_six_numbers
+    0x13d0: r13d = 0
+    0x13d6: jmp loop_0x13fd
+    loop {
+        loop_0x13fd:
+        0x13fd: rbp = r12
+        0x1400: eax = *(r12)
+        0x1404: eax -= 1
+        # 0x1407: cmp eax, 5
+        # 0x140a: jbe 0x13d8
+        if (eax (unsigned) > 5) {
+            0x140c: call explode_bomb
+            0x1411: jmp 0x13d8
+        }
+        0x13d8: r13d += 1
+        # 0x13dc: cmp r13d, 6
+        # 0x13e0: je 0x141a
+        if (r13d == 6)  goto break_0x141a
+        0x13e2: ebx = r13d
+        loop {
+            loop_0x13e5:
+            0x13e5: movsxd rax, ebx
+            0x13e8: eax = *(rsp + (rax*4) + 48)
+            # 0x13ec: cmp dword ptr [rbp], eax
+            # 0x13ef: je 0x1413
+            if (*(rbp) == eax) {
+                0x1413: call explode_bomb
+                0x1418: jmp 0x13f1
+            }
+            0x13f1: ebx += 1
+            # 0x13f4: cmp ebx, 5
+            # 0x13f7: jle 0x13e5
+            if (ebx > 5)  goto break_0x13f9
+        } ; loop_0x13e5
+
+        break_0x13f9:
+        0x13f9: r12 += 4
+    } ; loop_0x13fd
+
+    break_0x141a:
+    0x141a: esi = 0
+    loop {
+        loop_0x141f:
+        0x141f: ecx = *(rsp + rsi + 48)
+        0x1423: eax = 1
+        0x1428: rdx = node1
+        # 0x142f: cmp ecx, 1
+        # 0x1432: jle 0x143f
+        if (ecx > 1) {
+            loop {
+                loop_0x1434:
+                0x1434: rdx = *(rdx + 8)
+                0x1438: eax += 1
+                # 0x143b: cmp eax, ecx
+                # 0x143d: jne 0x1434
+                if (eax == ecx)  goto break_0x143f
+            } ; loop_0x1434
+
+        }
+        break_0x143f:
+        0x143f: *(rsp + (rsi*2)) = rdx
+        0x1443: rsi += 4
+        # 0x1447: cmp rsi, 0x18
+        # 0x144b: jne 0x141f
+        if (rsi == 24)  goto break_0x144d
+    } ; loop_0x141f
+
+    break_0x144d:
+    0x144d: rbx = *(rsp)
+    0x1451: rax = rsp
+    0x1454: rsi = rsp + 40
+    0x1459: rcx = rbx
+    loop {
+        loop_0x145c:
+        0x145c: rdx = *(rax + 8)
+        0x1460: *(rcx + 8) = rdx
+        0x1464: rax += 8
+        0x1468: rcx = rdx
+        # 0x146b: cmp rsi, rax
+        # 0x146e: jne 0x145c
+        if (rsi == rax)  goto break_0x1470
+    } ; loop_0x145c
+
+    break_0x1470:
+    0x1470: *(rdx + 8) = 0
+    0x1478: ebp = 5
+    0x147d: jmp loop_0x1488
+    loop {
+        loop_0x1488:
+        0x1488: rax = *(rbx + 8)
+        0x148c: eax = *(rax)
+        # 0x148e: cmp dword ptr [rbx], eax
+        # 0x1490: jge 0x147f
+        if (*(rbx) < eax) {
+            0x1492: call explode_bomb
+            0x1497: jmp 0x147f
+        }
+        0x147f: rbx = *(rbx + 8)
+        0x1483: ebp -= 1
+        # 0x1486: je 0x1499
+        if ==  goto ret_0x1499
+    } ; loop_0x1488
+
+    ret_0x1499:
+    0x1499: rsp += 88
+    0x149d: pop rbx
+    0x149e: pop rbp
+    0x149f: pop r12
+    0x14a1: pop r13
+    0x14a3: ret
+}
+function read_line (.text) {
+    0x1743: rsp -= 8
+    0x1747: eax = 0
+    0x174c: call skip
+    # 0x1751: test rax, rax
+    # 0x1754: je 0x17c5
+    if (rax != 0) {
+        0x1756: esi = *(num_input_strings)
+        0x175c: movsxd rax, esi
+        0x175f: rdx = rax + (rax*4)
+        0x1763: rdx <<= 4
+        0x1767: rax = input_strings
+        0x176e: rdx += rax
+        0x1771: eax = 0
+        0x1776: rcx = -1
+        0x177d: rdi = rdx
+        0x1780: 
+        while (!rcx) {
+            0x1780: al cmp *(rdi)
+            0x1780: rdi += D ? -1 : 1
+            0x1780: rcx--
+            if (Z) break
+        }
+        0x1782: rcx ~= rcx
+        0x1785: rcx -= 1
+        # 0x1789: cmp ecx, 0x4e
+        # 0x178c: jg 0x183d
+        if (ecx <= 78) {
+            ret_0x1792:
+            0x1792: ecx -= 1
+            0x1795: movsxd rcx, ecx
+            0x1798: movsxd rax, esi
+            0x179b: rax = rax + (rax*4)
+            0x179f: rax <<= 4
+            0x17a3: rdi = rax
+            0x17a6: rax = input_strings
+            0x17ad: rax += rdi
+            0x17b0: *(rax + rcx) = '\0'
+            0x17b4: esi += 1
+            0x17b7: *(num_input_strings) = esi
+            0x17bd: rax = rdx
+            0x17c0: rsp += 8
+            0x17c4: ret
+        }
+    } else {
+        0x17c5: rax = *(stdin)
+        # 0x17cc: cmp qword ptr [rip + 0x202f9d], rax
+        # 0x17d3: je 0x181d
+        if (*(infile) != rax) {
+            0x17d5: rdi = 0x2833 "GRADE_BOMB"
+            0x17dc: call getenv
+            # 0x17e1: test rax, rax
+            # 0x17e4: jne 0x1833
+            if (rax == 0) {
+                0x17e6: rax = *(stdin)
+                0x17ed: *(infile) = rax
+                0x17f4: eax = 0
+                0x17f9: call skip
+                # 0x17fe: test rax, rax
+                # 0x1801: jne 0x1756
+                if (rax == 0) {
+                    0x1807: rdi = 0x2815 "Error: Premature EOF on stdin"
+                    0x180e: call puts
+                    0x1813: edi = 0
+                    0x1818: call exit
+                    goto 0x181d
+                } else {
+                    goto 0x1756
+                }
+            } else {
+                goto 0x1833
+            }
+        } else {
+            0x181d: rdi = 0x2815 "Error: Premature EOF on stdin"
+            0x1824: call puts
+            0x1829: edi = 8
+            0x182e: call exit
+            0x1833: edi = 0
+            0x1838: call exit
+        }
+    }
+    ret_0x183d:
+    0x183d: rdi = 0x283e "Error: Input line too long"
+    0x1844: call puts
+    0x1849: eax = *(num_input_strings)
+    0x184f: edx = rax + 1
+    0x1852: *(num_input_strings) = edx
+    0x1858: rax = eax
+    0x185a: rax = rax * 80
+    0x185e: rdx = input_strings
+    0x1865: rax += rdx
+    0x1868: movabs rdi, 7164793191628679722 "***trunc"
+    0x1872: *(rax) = rdi
+    0x1875: movabs rdi, 11868310583211105
+    0x187f: *(rax + 8) = rdi
+    0x1883: call explode_bomb
+}
