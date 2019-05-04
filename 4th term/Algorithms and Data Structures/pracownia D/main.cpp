@@ -77,7 +77,7 @@ DistancePointPoint closestInStrip(const vector<Point> &leftHalfPoints, const vec
                && (rHalfEndIterator != rightHalfPoints.end()))
             rHalfEndIterator++; //mind this is past the end after loop finishes (as in C++ standard e.g. valu returned by vector end() method)
         strip.resize((leftHalfPoints.end() - lHalfIterator) +
-                     (strip.size() + (size_t) (rHalfEndIterator - rightHalfPoints.begin()));
+                     (strip.size() + (size_t) (rHalfEndIterator - rightHalfPoints.begin())));
         int i = 0;
         for (; i < strip.size() && lHalfIterator != leftHalfPoints.end(); i++, lHalfIterator++)
             strip[i] = *lHalfIterator;
