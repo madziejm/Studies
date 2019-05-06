@@ -85,7 +85,7 @@ DistancePointPoint closestInStrip(const vector<Point> &leftHalfPoints, const vec
             strip[i] = *it;
     }
 
-    //sort comparing y
+    //sort by y
     sort(strip.begin(), strip.end(), [](auto &p1, auto &p2) { return getPointY(p1) < getPointY(p2); });
 
     //brute-force approach to find closest points in the strip
@@ -123,13 +123,13 @@ DistancePointPoint closestPairAuxiliary(const vector<Point> &points) {
 }
 
 DistancePointPoint closestPair(vector<Point> points) {
-    // //sort comparing y
+    // sort by y
     // sort(points.begin(),
     //  points.end(),
     //  [](auto &p1, auto &p2){ return getPointY(p1)<getPointY(p2) }
     //  );
 
-    //sort comparing x
+    //sort by x
     sort(points.begin(), points.end());
 
     return closestPairAuxiliary(points);
