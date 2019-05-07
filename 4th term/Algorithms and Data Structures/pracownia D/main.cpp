@@ -11,7 +11,7 @@
  *       Compiler:  gcc
  *
  *         Author:  Maciej M
- *        Company:  
+ *        Company:
  *
  * =====================================================================================
  */
@@ -60,9 +60,20 @@ DistancePointPoint constructTuple(const Point &p1, const Point &p2, double dista
     return tuple;
 }
 
+DistancePointPoint bruteForceClosest(const vector<Point> &points) {
+    DistancePointPoint closest = make_tuple(numeric_limits<double>::max(), make_pair(0, 0), make_pair(0, 0));
+
+    for (size_t i = 0; i < points.size(); i++)
+        for (size_t j = 0; j < i; j++) { // <= can give as closest pairs as possible XD
+            closest = min(closest,
+                          constructTuple(points[i], points[j], euclideanDistance(points[i], points[j])));
+        }
+
+    return closest;
+}
+
 DistancePointPoint closestInStrip(const vector<Point> &leftHalfPoints, const vector<Point> &rightHalfPoints, double d) {
     //assert points are sorted by x value
-    DistancePointPoint closest = make_tuple(numeric_limits<double>::max(), make_pair(0, 0), make_pair(0, 0));
     vector<Point> strip;
 
     {
@@ -85,15 +96,15 @@ DistancePointPoint closestInStrip(const vector<Point> &leftHalfPoints, const vec
             strip[i] = *it;
     }
 
-    //sort comparing y
+    //sort by y
     sort(strip.begin(), strip.end(), [](auto &p1, auto &p2) { return getPointY(p1) < getPointY(p2); });
 
-    //brute-force approach to find closest points in the strip
-    for (int i = 0; i < strip.size(); i++)
-        for (int j = 0; j < i; j++) { // <= can give as closest pairs as possible XD
-            closest = min(closest,
-                          constructTuple(strip[i], strip[j], euclideanDistance(strip[i], strip[j])));
+    DistancePointPoint closest = make_tuple(numeric_limits<double>::max(), make_pair(0, 0), make_pair(0, 0));
+    for (size_t i = 0; i < strip.size(); i++) {
+        for (size_t j = i + 1; getPointY(strip[j]) - getPointY(strip[i]) < d && j < strip.size(); j++) {
+            closest = min(closest, constructTuple(strip[i], strip[j], euclideanDistance(strip[i], strip[j])));
         }
+    }
 
     return closest;
 }
@@ -106,12 +117,15 @@ DistancePointPoint closestPairAuxiliary(const vector<Point> &points) {
     if (points.size() == 2)
         return make_tuple(euclideanDistance(points[0], points[1]), points[0], points[1]);
 
-    const size_t halfIndex = points.size() / 2;
+    if (points.size() < 7)
+        return bruteForceClosest(points);
 
-    const Point median = points[halfIndex];
+    const size_t medianIndex = points.size() / 2;
 
-    vector<Point> leftHalfPoints(points.begin(), points.begin() + halfIndex);
-    vector<Point> rightHalfPoints(points.begin() + halfIndex, points.end());
+    const Point median = points[medianIndex];
+
+    vector<Point> leftHalfPoints(points.begin(), points.begin() + medianIndex);
+    vector<Point> rightHalfPoints(points.begin() + medianIndex, points.end());
 
     DistancePointPoint leftHalfClosest = closestPairAuxiliary(leftHalfPoints),
             rightHalfClosest = closestPairAuxiliary(rightHalfPoints);
@@ -123,17 +137,10 @@ DistancePointPoint closestPairAuxiliary(const vector<Point> &points) {
 }
 
 DistancePointPoint closestPair(vector<Point> points) {
-    // //sort comparing y
-    // sort(points.begin(),
-    //  points.end(),
-    //  [](auto &p1, auto &p2){ return getPointY(p1)<getPointY(p2) }
-    //  );
-
-    //sort comparing x
+    //sort by x
     sort(points.begin(), points.end());
 
     return closestPairAuxiliary(points);
-    //  make_pair(getTupleFirstPoint(result), getTupleSecondPoint(result));
 }
 
 void printPoint(const Point &p) {
