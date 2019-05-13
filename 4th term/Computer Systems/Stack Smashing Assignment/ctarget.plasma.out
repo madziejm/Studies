@@ -1,0 +1,90 @@
+function main (.text) {
+    0x4010ba: push r14
+    0x4010bc: push r13
+    0x4010be: push r12
+    0x4010c0: push rbp
+    0x4010c1: push rbx
+    0x4010c2: r12d = edi
+    0x4010c5: rbx = rsi
+    0x4010c8: rsi = seghandler
+    0x4010cf: edi = 11
+    0x4010d4: call signal
+    0x4010d9: rsi = bushandler
+    0x4010e0: edi = 7
+    0x4010e5: call signal
+    0x4010ea: rsi = illegalhandler
+    0x4010f1: edi = 4
+    0x4010f6: call signal
+    # 0x4010fb: cmp dword ptr [rip + 0x203406], 0
+    # 0x401102: jne 0x40115c
+    if (*(is_checker) == 0) {
+        0x401104: rbp = 0x402e85 "hqi:"
+    } else {
+        0x40115c: rsi = sigalrmhandler
+        0x401163: edi = 14
+        0x401168: call signal
+        0x40116d: edi = 5
+        0x401172: call alarm
+        0x401177: rbp = 0x402e8a "hi:a:l:"
+        0x40117e: jmp 0x40110b
+    }
+    0x40110b: rax = *(stdin)
+    0x401112: *(infile) = rax
+    0x401119: r13d = 0
+    0x40111f: r14d = 0
+    0x401125: rdx = rbp
+    0x401128: rsi = rbx
+    0x40112b: edi = r12d
+    0x40112e: call getopt
+    # 0x401133: cmp al, 0xff
+    # 0x401135: je 0x401233
+    if (al != '\xff') {
+        0x40113b: esi = al
+        0x40113e: eax -= 97
+        # 0x401141: cmp al, 0x10
+        # 0x401143: ja 0x40121a
+        if (al (unsigned) <= '\x10') {
+            0x401149: eax = (zero ext) al
+            0x40114c: rdx = 0x402ed0
+            0x401153: movsxd rax, *(rdx + (rax*4))
+            0x401157: rax += rdx
+            ret_0x40115a:
+            0x40115a: jmp rax # STOPPED
+        }
+        0x40121a: rdi = 0x402eaf "Unknown flag '%c'\n"
+        0x401221: eax = 0
+        0x401226: call printf
+        0x40122b: rdi = *(rbx)
+        0x40122e: call usage
+    }
+    0x401233: esi = 0
+    0x401238: edi = r13d
+    0x40123b: call initialize_target
+    # 0x401240: cmp dword ptr [rip + 0x2032c1], 0
+    # 0x401247: je 0x401270
+    if (*(is_checker) != 0) {
+        # 0x401249: cmp r14d, dword ptr [rip + 0x2032b0]
+        # 0x401250: je 0x401270
+        and if (r14d != *(authkey))
+        0x401252: esi = r14d
+        0x401255: rdi = 0x402de8 "Supplied authentication key 0x..."
+        0x40125c: eax = 0
+        0x401261: call printf
+        0x401266: eax = 0
+        0x40126b: call check_fail
+    }
+    ret_0x401270:
+    0x401270: esi = *(cookie)
+    0x401276: rdi = 0x402ec2 "Cookie: 0x%x\n"
+    0x40127d: eax = 0
+    0x401282: call printf
+    0x401287: rdi = *(buf_offset)
+    0x40128e: call stable_launch
+    0x401293: eax = 0
+    0x401298: pop rbx
+    0x401299: pop rbp
+    0x40129a: pop r12
+    0x40129c: pop r13
+    0x40129e: pop r14
+    0x4012a0: ret
+}
