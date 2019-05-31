@@ -21,6 +21,6 @@ final class GetAllGamificationAccountsAction extends AbstractGamificationAccount
         } catch (\Exception $exception) {
             return $response->withJson(['status' => false, 'errors' => $exception->getMessage()])->withStatus(500);
         }
-        return $response->withJson($accounts->jsonSerialize())->withStatus(200);
+        return $response->withJson($accounts)->withStatus(200);
     }
 }
