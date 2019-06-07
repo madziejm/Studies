@@ -38,8 +38,9 @@ class GamificationAccountService implements GamificationAccountServiceInterface
     {
         if (!$this->gamificationAccountPolicy->validEmail($email))
             throw new InvalidEmailException();
-        if (!$this->gamificationAccountPolicy->validDescription($description))
+        if (!$this->gamificationAccountPolicy->validDescription($description)) {
             throw new InvalidDescriptionException();
+        }
 
         $account = GamificationAccount::create($email, $description);
         $this->gamificationAccountRepository->add($account);

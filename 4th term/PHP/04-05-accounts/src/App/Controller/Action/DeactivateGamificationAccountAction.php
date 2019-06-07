@@ -15,7 +15,7 @@ final class DeactivateGamificationAccountAction extends AbstractGamificationAcco
     {
         try {
             $this->gamificationAccountService->deactivateAccount(new GamificationAccountUuid(new GamificationAccountUuid($request->getParam('uuid'))));
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             return $response->withJson(['status' => false, 'errors' => $exception->getMessage()])->withStatus(500);
         }
         return $response->withJson(['status' => true])->withStatus(200);

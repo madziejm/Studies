@@ -15,7 +15,7 @@ final class TopUpGamificationAccountAction extends AbstractGamificationAccountAc
     {
         try {
             $this->gamificationAccountService->topUpAccount(new GamificationAccountUuid(new GamificationAccountUuid($request->getParam('uuid'))), (int)$request->getParam('amount'));
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             return $response->withJson(['status' => false, 'errors' => $exception->getMessage()])->withStatus(500);
         }
         return $response->withJson(['status' => true])->withStatus(200);

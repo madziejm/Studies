@@ -9,6 +9,10 @@ use App\ValueObject\Uuid\GamificationAccountUuid;
 use Exception;
 use InvalidArgumentException;
 
+/**
+ * Class GamificationAccount
+ * @package App
+ */
 class GamificationAccount
 {
     /** @var GamificationAccountUuid */
@@ -76,6 +80,7 @@ class GamificationAccount
      */
     public static function recreateFromArray(array $data): self
     {
+//        var_dump($data);exit;
         return new self(
             new GamificationAccountUuid($data['uuid']),
             $data['email'],

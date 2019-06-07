@@ -3,8 +3,8 @@
 use App\Controller\Action\ActivateGamificationAccountAction;
 use App\Controller\Action\CreateGamificationAccountAction;
 use App\Controller\Action\DeactivateGamificationAccountAction;
-use App\Controller\Action\GetAllGamificationAccountsAction;
-use App\Controller\Action\GetGamificationAccountAction;
+use App\Controller\Action\FindAllGamificationAccountsAction;
+use App\Controller\Action\FindGamificationAccountAction;
 use App\Controller\Action\TopUpGamificationAccountAction;
 use App\Policy\GamificationAccountPolicy;
 use App\QueryService\GamificationAccountQueryService;
@@ -66,7 +66,7 @@ $app->post('/api/account/create',
     CreateGamificationAccountAction::class);
 
 $app->get('/api/account/all',
-    GetAllGamificationAccountsAction::class);
+    FindAllGamificationAccountsAction::class);
 
 $app->post('/api/account/topup',
     TopUpGamificationAccountAction::class);
@@ -78,7 +78,7 @@ $app->post('/api/account/deactivate',
     DeactivateGamificationAccountAction::class);
 
 $app->get('/api/account/{uuid}',
-    GetGamificationAccountAction::class);
+    FindGamificationAccountAction::class);
 
 
 $app->get('/api/hello/{name}', function (Request $request, Response $response, array $args) {

@@ -24,7 +24,7 @@ final class CreateGamificationAccountAction extends AbstractGamificationAccountA
             return $response->withJson(['status' => false, 'errors' => 'Invalid email.'])->withStatus(500);
         } catch (InvalidDescriptionException $e) {
             return $response->withJson(['status' => false, 'errors' => 'Invalid description.'])->withStatus(500);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return $response->withJson(['status' => false, 'errors' => 'Internal error occurred.'])->withStatus(500);
         }
         //TODO return ID in the response
