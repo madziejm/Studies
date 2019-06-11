@@ -81,25 +81,6 @@ $app->get('/api/account/{uuid}',
     GetGamificationAccountAction::class);
 
 
-$app->get('/api/hello/{name}', function (Request $request, Response $response, array $args) {
-    $name = $args['name'];
-    $response->getBody()->write("Hello, $name");
-    $this->logger->addInfo('Hello happened');
-
-    return $response;
-});
-//
-//$app->post('/api/ticket/new', function (Request $request, Response $response) {
-//    $data = $request->getParsedBody();
-//    $ticket_data = [];
-//    $ticket_data['title'] = filter_var($data['title'], FILTER_SANITIZE_STRING);
-//    $ticket_data['description'] = filter_var($data['description'], FILTER_SANITIZE_STRING);
-//    $response->getBody()->write("Hello!");
-//    $this->logger->addInfo('Ticket happened');
-//
-//    return $response;
-//});
-
 
 // quite important to do so:
 $app->run();

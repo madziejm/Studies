@@ -45,6 +45,8 @@ class GamificationAccountDTO implements JsonSerializable
         $this->uuid = $uuid;
         $this->email = new Email($email);
         $this->description = $description;
+        $this->balance = $balance;
+        $this->status = $status;
     }
 
 

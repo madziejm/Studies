@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Accounts</title>
+    <style>
+        #accounts {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #accounts td, #accounts th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #accounts tr:nth-child(even){background-color: #f2f2f2;}
+
+        #accounts tr:hover {background-color: #ddd;}
+
+        #accounts th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<table id="accounts">
+    {#<thead>#}
+    {#All users#}
+    {#</thead>#}
+    <tr>
+        <th>Email</th>
+        <th>Description</th>
+        <th>Balance</th>
+        <th>Status</th>
+    </tr>
+    {% for account in accounts  %}
+        <tr>
+            <td>{{ account.email }}</td>
+            <td>{{ account.description }}</td>
+            <td>
+                {# Check a variable with an empty default filter #}
+                {% if account.balance is same as(0) %}
+                    0
+                {% elseif account.balance|default %}
+                    Value is set and not empty
+                {% else %}
+                    Value is either undefined, false, 0, null, "", [] or {}
+                {% endif %}
+            </td>
+            <td>
+                {# Check a variable with an empty default filter #}
+                {% if not account.status|default %}
+                    Value is either undefined, false, 0, null, "", [] or {}
+                {% elseif account.status == true %}
+                Active
+                {% else %}
+                Inactive
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

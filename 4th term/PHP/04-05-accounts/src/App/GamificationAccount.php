@@ -65,7 +65,8 @@ class GamificationAccount
         return new self(
             new GamificationAccountUuid(),
             $email,
-            $description,
+            $description
+//            ,
             );
     }
 
