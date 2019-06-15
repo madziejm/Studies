@@ -1,6 +1,6 @@
 <?php
 
-namespace Number;
+namespace App\Number;
 
 class Number
 {

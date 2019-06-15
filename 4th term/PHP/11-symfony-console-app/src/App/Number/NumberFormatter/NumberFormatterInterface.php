@@ -1,5 +1,5 @@
 <?php
-namespace Number\NumberFormatter;
+namespace App\Number\NumberFormatter;
 
 interface NumberFormatterInterface
 {
